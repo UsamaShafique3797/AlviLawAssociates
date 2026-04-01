@@ -210,6 +210,7 @@ h4, .title-lg {
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
 .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-5); }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-4); }
 
 .flex-center { display: flex; align-items: center; justify-content: center; }
 .flex-between { display: flex; align-items: center; justify-content: space-between; }
@@ -723,7 +724,7 @@ h4, .title-lg {
 
 .team-card-avatar {
   width: 100%;
-  height: 200px;
+  height: 334px;
   object-fit: cover;
   object-position: top center;
   filter: saturate(0.85);
@@ -1335,6 +1336,7 @@ h4, .title-lg {
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-5 { grid-template-columns: repeat(3, 1fr); }
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
 }
 
@@ -1345,6 +1347,7 @@ h4, .title-lg {
   .grid-3 { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr; }
   .grid-5 { grid-template-columns: repeat(2, 1fr); }
+  .grid-6 { grid-template-columns: repeat(2, 1fr); }
   .form-row { grid-template-columns: 1fr; }
   .hero-stats { position: relative; bottom: auto; margin-top: var(--space-12); flex-wrap: wrap; gap: var(--space-8); }
   .hero-stats .hero-stat { text-align: left; }
@@ -1359,4 +1362,5 @@ h4, .title-lg {
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary { width: 100%; justify-content: center; }
   .grid-5 { grid-template-columns: 1fr; }
+  .grid-6 { grid-template-columns: 1fr; }
 }

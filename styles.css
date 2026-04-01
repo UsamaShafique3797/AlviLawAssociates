@@ -724,9 +724,9 @@ h4, .title-lg {
 
 .team-card-avatar {
   width: 100%;
-  height: 334px;
+  height: 280px;
   object-fit: cover;
-  object-position: top center;
+  object-position: center top;
   filter: saturate(0.85);
   transition: var(--transition);
 }
@@ -1270,20 +1270,22 @@ h4, .title-lg {
   position: fixed;
   inset: 0;
   top: 72px;
-  background: rgba(252, 249, 248, 0.97);
+  background: rgba(252, 249, 248, 0.98);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 999;
   padding: var(--space-8);
   flex-direction: column;
   gap: var(--space-3);
   animation: fadeIn 0.25s ease;
+  overflow-y: auto;
 }
 
 .mobile-menu.open { display: flex; }
 
 .mobile-menu-link {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 400;
   color: var(--primary-container);
   padding: var(--space-4) 0;
@@ -1292,6 +1294,16 @@ h4, .title-lg {
 }
 
 .mobile-menu-link:hover { color: var(--gold-dark); padding-left: var(--space-4); }
+
+@media (max-width: 768px) {
+  .mobile-menu { top: 64px; padding: var(--space-6); }
+  .mobile-menu-link { font-size: 1.25rem; padding: var(--space-3) 0; }
+}
+
+@media (max-width: 480px) {
+  .mobile-menu { top: 60px; padding: var(--space-5); }
+  .mobile-menu-link { font-size: 1.125rem; }
+}
 
 /* ─── FORM SUBMIT BTN ─── */
 .btn-submit {
@@ -1333,34 +1345,291 @@ h4, .title-lg {
 }
 
 /* ─── RESPONSIVE ─── */
+
+/* Large Tablets & Small Desktops */
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-5 { grid-template-columns: repeat(3, 1fr); }
   .grid-6 { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  
+  .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); max-width: 600px; }
+  .hero-stats { gap: var(--space-6); }
+  .hero-stat-number { font-size: 1.875rem; }
+  
+  .container { padding: 0 var(--space-6); }
+  .section { padding: var(--space-20) 0; }
+  
+  .testimonial { padding: var(--space-6); }
 }
 
+/* Tablets */
 @media (max-width: 768px) {
+  /* Navigation */
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
-  .grid-2 { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: 1fr; }
-  .grid-5 { grid-template-columns: repeat(2, 1fr); }
-  .grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .nav-inner { height: 64px; }
+  .nav-logo-img { height: 42px; }
+  
+  /* Grid layouts */
+  .grid-2 { grid-template-columns: 1fr; gap: var(--space-6); }
+  .grid-3 { grid-template-columns: 1fr; gap: var(--space-6); }
+  .grid-4 { grid-template-columns: 1fr; gap: var(--space-5); }
+  .grid-5 { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  .grid-6 { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+  
+  /* Hero Section */
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 100px 0 80px; }
+  .hero-title { font-size: clamp(2rem, 8vw, 3rem); max-width: 100%; }
+  .hero-subtitle { font-size: 0.9375rem; max-width: 100%; }
+  .hero-overline { font-size: 0.6875rem; }
+  .hero-stats { 
+    position: relative; 
+    bottom: auto; 
+    margin-top: var(--space-10); 
+    flex-wrap: wrap; 
+    gap: var(--space-6);
+    justify-content: flex-start;
+  }
+  .hero-stats .hero-stat { 
+    text-align: left; 
+    flex: 1 0 45%;
+  }
+  .hero-stat-number { font-size: 1.75rem; }
+  .hero-stat-label { font-size: 0.6875rem; }
+  
+  /* Forms */
   .form-row { grid-template-columns: 1fr; }
-  .hero-stats { position: relative; bottom: auto; margin-top: var(--space-12); flex-wrap: wrap; gap: var(--space-8); }
-  .hero-stats .hero-stat { text-align: left; }
+  
+  /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
   .footer-bottom { flex-direction: column; gap: var(--space-4); text-align: center; }
+  .footer-bottom-links { flex-wrap: wrap; justify-content: center; }
+  
+  /* Section Spacing */
   .section { padding: var(--space-16) 0; }
+  .section-lg { padding: var(--space-20) 0; }
   .container { padding: 0 var(--space-5); }
+  .container-narrow { padding: 0 var(--space-5); }
+  
+  /* Typography adjustments */
+  .headline-lg { font-size: clamp(1.375rem, 5vw, 1.75rem); }
+  .headline-md { font-size: clamp(1.125rem, 4vw, 1.5rem); }
+  .body-lg { font-size: 1rem; }
+  .body-md { font-size: 0.875rem; }
+  
+  /* Buttons */
+  .btn-primary, .btn-secondary, .btn-dark, .btn-outline {
+    padding: 0.75rem var(--space-6);
+    font-size: 0.8125rem;
+  }
+  
+  /* Cards */
+  .card { padding: var(--space-5); }
+  .team-card-avatar { height: 240px; object-position: center 20%; }
+  .team-card-body { padding: var(--space-4); }
+  .team-card-name { font-size: 0.9375rem; }
+  .team-card-desc { font-size: 0.8125rem; }
+  
+  /* Practice items */
+  .practice-item { padding: var(--space-4); }
+  .practice-item-title { font-size: 0.9375rem; }
+  .practice-item-desc { font-size: 0.8125rem; }
+  
+  /* Testimonials */
+  .testimonial { padding: var(--space-5); }
+  .testimonial-text { font-size: 1rem; }
+  
+  /* Page Hero */
+  .page-hero { min-height: 50vh; }
+  .page-hero-title { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  .page-hero-subtitle { font-size: 0.9375rem; }
+  
+  /* Pull Quote */
+  .pull-quote { font-size: 1.25rem; padding: var(--space-6); }
+  
+  /* Stats section inline */
+  .stats-section .container > div {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-6) !important;
+  }
+  
+  /* Margin/Padding utilities */
+  .mb-12 { margin-bottom: var(--space-8) !important; }
+  .mt-10 { margin-top: var(--space-6) !important; }
 }
 
+/* Mobile Phones */
 @media (max-width: 480px) {
+  /* Hero */
+  .hero-content { padding: 90px 0 60px; }
+  .hero-title { font-size: clamp(1.75rem, 9vw, 2.25rem); }
+  .hero-subtitle { font-size: 0.875rem; line-height: 1.6; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary { width: 100%; justify-content: center; }
+  .hero-stats .hero-stat { flex: 1 0 100%; }
+  
+  /* Grids */
   .grid-5 { grid-template-columns: 1fr; }
   .grid-6 { grid-template-columns: 1fr; }
+  
+  /* Navigation */
+  .nav-inner { height: 60px; }
+  .nav-logo-img { height: 38px; }
+  
+  /* Cards */
+  .team-card-avatar { height: 280px; object-position: center 15%; }
+  .team-card-body { padding: var(--space-4); }
+  .team-card-name { font-size: 0.875rem; }
+  .team-card-role { font-size: 0.6875rem; }
+  .team-card-desc { font-size: 0.8125rem; line-height: 1.5; }
+  
+  /* Sections */
+  .section { padding: var(--space-12) 0; }
+  .section-lg { padding: var(--space-16) 0; }
+  .container { padding: 0 var(--space-4); }
+  .container-narrow { padding: 0 var(--space-4); }
+  
+  /* Typography */
+  .headline-lg { font-size: 1.25rem; }
+  .headline-md { font-size: 1.125rem; }
+  .section-tag { font-size: 0.625rem; }
+  
+  /* Practice items */
+  .practice-item { padding: var(--space-4); }
+  .practice-item-icon { font-size: 1.25rem !important; }
+  
+  /* Buttons */
+  .btn-primary, .btn-secondary, .btn-dark, .btn-outline {
+    padding: 0.75rem var(--space-5);
+    font-size: 0.8125rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Page Hero */
+  .page-hero { min-height: 45vh; }
+  .page-hero-content { padding: var(--space-8) 0; }
+  .page-hero-title { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .page-hero-subtitle { font-size: 0.875rem; }
+  .page-hero-tag { font-size: 0.625rem; }
+  
+  /* Footer */
+  .footer { padding: var(--space-10) 0 var(--space-6); }
+  .footer-brand-name { font-size: 1.125rem; }
+  .footer-brand-desc { font-size: 0.8125rem; }
+  .footer-col-title { font-size: 0.75rem; }
+  .footer-link { font-size: 0.8125rem; }
+  .footer-contact-text { font-size: 0.8125rem; }
+  
+  /* Pull Quote */
+  .pull-quote { font-size: 1.125rem; padding: var(--space-5); }
+  
+  /* Stats section */
+  .stats-section .container > div {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--space-5) !important;
+  }
+  .stats-section .container > div > div > div:first-child {
+    font-size: 2.25rem !important;
+  }
+  
+  /* Testimonials */
+  .testimonial-text { font-size: 0.9375rem; }
+  .testimonial-author { font-size: 0.75rem; }
+  .testimonial-image-square { max-width: 180px; }
+  
+  /* WhatsApp FAB */
+  .whatsapp-fab {
+    width: 52px;
+    height: 52px;
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 360px) {
+  .hero-title { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 0.8125rem; }
+  .hero-stat-number { font-size: 1.5rem; }
+  
+  .headline-lg { font-size: 1.125rem; }
+  .headline-md { font-size: 1rem; }
+  
+  .container { padding: 0 var(--space-3); }
+  
+  .team-card-avatar { height: 260px; object-position: center 15%; }
+  
+  .stats-section .container > div > div > div:first-child {
+    font-size: 1.875rem !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-dark:hover,
+  .btn-outline:hover,
+  .nav-cta:hover,
+  .practice-item:hover,
+  .team-card:hover,
+  .card:hover {
+    transform: none;
+  }
+  
+  .nav-link::after {
+    display: none;
+  }
+  
+  /* Increase touch targets */
+  .nav-hamburger {
+    padding: var(--space-3);
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+  
+  .mobile-menu-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: var(--space-16) 0;
+  }
+  
+  .hero-content {
+    padding: 80px 0 40px;
+  }
+  
+  .hero-stats {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  
+  .hero-stats .hero-stat {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .page-hero {
+    min-height: auto;
+    padding: var(--space-12) 0;
+  }
 }
